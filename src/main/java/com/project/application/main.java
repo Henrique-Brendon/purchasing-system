@@ -1,7 +1,8 @@
 package com.project.application;
 
 
-import entities.Product;
+import DB.Db;
+import model.dao.entities.Product;
 
 
 public class main {
@@ -9,10 +10,11 @@ public class main {
         
         Product product = new Product();
 
+        Db.getConnection();
 
         
 
-        System.out.println(product.popularDataBase(2));
+        System.out.println(product.popularDataBase(1));
 
     }
 }

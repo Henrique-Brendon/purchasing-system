@@ -1,4 +1,5 @@
-package entities;
+package model.dao.entities;
+
 
 import java.io.Serializable;
 import java.util.HashMap;
