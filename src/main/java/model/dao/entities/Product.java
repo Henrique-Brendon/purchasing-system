@@ -139,67 +139,78 @@ public class Product implements Serializable {
         return true;
     }
 
-    private String generatedString() {
-        String[] aux = new String[60];
-        aux[0] = "Ryzen 3 2200G";
-        aux[1] = "Ryzen 3 3400G";
-        aux[2] = "Ryzen 5 3600";
-        aux[3] = "Ryzen 5 3600X";
-        aux[4] = "Ryzen 5 5600";
-        aux[5] = "Ryzen 5 500G";
-        aux[6] = "Ryzen 5 500X";
-        aux[7] = "Ryzen 7 3600X";
-        aux[8] = "i5 10400h";
-        aux[9] = "i5 13700k";
-        aux[10] = "i7 9800";
-        aux[11] = "i7 12700k";
-        aux[12] = "i9 10100H";
-        aux[13] = "RTX 2060 SUPER";
-        aux[14] = "RTX 3060";
-        aux[15] = "RTX 3060 TI";
-        aux[16] = "RTX 3070 TI";
-        aux[17] = "RTX 3080 TI";
-        aux[18] = "RTX 4060 TI";
-        aux[19] = "RTX 4070 TI";
-        aux[20] = "RTX 4080 TI";
-        aux[21] = "RTX 4090 TI";
-        aux[22] = "RX 6600";
-        aux[23] = "RX 6700 XT";
-        aux[24] = "RX 6900 XTX";
-        aux[25] = "RX 7600 XT";
-        aux[26] = "Mouse gamer";
-        aux[27] = "keyboard gamer";
-        aux[28] = "chair Gamer";
-        aux[29] = "monitor 1080p";
-        aux[30] = "monitor 1400p";
-        aux[31] = "monitor 4k";
-        aux[32] = "Moto g20";
-        aux[33] = "Moto g8";
-        aux[34] = "Moto z";
-        aux[35] = "Iphone 8";
-        aux[36] = "Iphone 15";
-        aux[37] = "Xiamoi 12";
-        aux[38] = "Xiamoi 14";
-        aux[39] = "galaxy s22";
-        aux[40] = "galaxy g7";
-        aux[41] = "Microwave";
-        aux[42] = "refrigerator";
-        aux[43] = "Air conditioning";
-        aux[44] = "RTX 2060";
-        aux[45] = "RTX 2070";
-        aux[46] = "RTX 2070 TI";
-        aux[47] = "RTX 2080";
-        aux[48] = "RTX 2080 TI";
-        aux[49] = "RTX 3070";
-        aux[50] = "RTX 3070 TI";
-        aux[51] = "RTX 3080";
-        aux[52] = "RTX 3080 TI";
-        aux[54] = "RX 6800 ";
-        aux[55] = "RX 6800 XT";
-        aux[56] = "i5 1100";
-        aux[57] = "i7 9800";
-        aux[58] = "i7 1200";
-        aux[59] = "i9 1300K";
+    public String generatedString() {
+        String[] aux = new String[70];
+        aux[0] ="RTX 2060";
+        aux[1] ="RTX 2060 SUPER";
+        aux[2] ="RTX 2070";
+        aux[3] ="RTX 2080";
+        aux[4] ="RTX 2080 TI";
+        aux[5] ="RTX 3060";
+        aux[6] ="RTX 3060 TI";
+        aux[7] ="RTX 3070";
+        aux[8] ="RTX 3070 TI";
+        aux[9] ="RTX 3080";
+        aux[10] ="RTX 3080 TI";
+        aux[11] ="RTX 4060";
+        aux[12] ="RTX 4060 TI";
+        aux[13] ="RTX 4070";
+        aux[14] ="RTX 4070 TI";
+        aux[15] ="RTX 4080";
+        aux[16] ="RTX 4080 TI";
+        aux[17] ="RX 6600";
+        aux[18] ="RX 6600 XT";
+        aux[19] ="RX 6700";
+        aux[20] ="RX 6700 XT";
+        aux[21] ="RX 6800";
+        aux[22] ="RX 6800 XT";
+        aux[23] ="Ryzen 5 3600";
+        aux[24] ="Ryzen 5 4650";
+        aux[25] ="Ryzen 5 5600G";
+        aux[26] ="Ryzen 5 5600X";
+        aux[27] ="i5 1100";
+        aux[28] ="i7 9800";
+        aux[29] ="i7 1200";
+        aux[30] ="i9 1300K";
+        aux[31] ="Mouse Gamer";
+        aux[32] ="Monitor 144hz";
+        aux[33] ="Samsung s22";
+        aux[34] ="Iphone 13 Pro";
+        aux[35] ="Iphone 9";
+        aux[36] ="Iphone X";
+        aux[37] ="keyboard gamer";
+        aux[38] ="chair Gamer";
+        aux[39] ="monitor 1480p";
+        aux[40] ="monitor 1080p";
+        aux[41] ="monitor 4k";
+        aux[42] ="Moto g20";
+        aux[43] ="Moto g8";
+        aux[44] ="Moto z";
+        aux[45] ="Iphone 8";
+        aux[46] ="Iphone 15";
+        aux[47] ="Iphone 14";
+        aux[48] ="galaxy s22";
+        aux[49] ="galaxy g7";
+        aux[50] ="Microwave";
+        aux[51] ="Air conditioning";
+        aux[52] ="i5 13700k";
+        aux[53] ="i7 9800";
+        aux[54] ="i7 12700k";
+        aux[55] ="i9 10100H";
+        aux[56] ="i5 10400h";
+        aux[57] ="Ryzen 3 2200G";
+        aux[58] ="Ryzen 3 3400G";
+        aux[59] ="Ryzen 5 3600";
+        aux[60] ="Ryzen 5 3600X";
+        aux[61] ="Ryzen 5 5600";
+        aux[62] ="Ryzen 7 3600X";
+        aux[63] ="RTX 4090 TI";
+        aux[64] ="RX 6900 XTX";
+        aux[65] ="RX 7600 XT";
+        aux[66] ="Xiamoi 12";
+        aux[67] ="Xiamoi 14";
+        aux[68] = "refrigerator";
+        aux[69] ="RTX 2070 TI";
 
         Random random = new Random();
 
@@ -222,12 +233,13 @@ public class Product implements Serializable {
         map.put("RTX 2060 SUPER", new Product(null, "RTX 2060 SUPER", 900, 1700.0, null,null, sector));
         map.put("RTX 2070", new Product(null, "RTX 2070", 1200, 1900.0, null,null, sector));
         map.put("RTX 2080", new Product(null, "RTX 2080", 800, 2300.0, null,null, sector));
+        map.put("RTX 2080 TI", new Product(null, "RTX 2080 TI", 1300, 2500.0, null,null, sector));
         map.put("RTX 3060", new Product(null, "RTX 3060", 2150, 2350.0, null,null, sector));
         map.put("RTX 3060 TI", new Product(null, "RTX 3060 TI", 2300, 2600.0, null,null, sector));
         map.put("RTX 3070", new Product(null, "RTX 3070", 2350, 2500.0, null,null, sector));
         map.put("RTX 3070 TI", new Product(null, "RTX 3070 TI", 2500, 2800.0, null,null, sector));
         map.put("RTX 3080", new Product(null, "RTX 3080", 2600, 3000.0, null,null, sector));
-        map.put("RTX 3080 TI", new Product(null, "RTX 3080 TI ", 3000, 3500.0, null,null, sector));
+        map.put("RTX 3080 TI", new Product(null, "RTX 3080 TI", 3000, 3500.0, null,null, sector));
         map.put("RTX 4060", new Product(null, "RTX 4060", 2500, 3000.0, null,null, sector));
         map.put("RTX 4060 TI", new Product(null, "RTX 4060 TI", 3000, 3500.0, null,null, sector));
         map.put("RTX 4070", new Product(null, "RTX 4070", 3100, 3300.0, null,null, sector));
@@ -264,7 +276,6 @@ public class Product implements Serializable {
         map.put("Moto z", new Product(null, "Moto z", 1500, 3000, null,null, sector));
         map.put("Iphone 8", new Product(null, "Iphone 8", 800, 1000, null,null, sector));
         map.put("Iphone 15", new Product(null, "Iphone 15", 3000, 5000, null,null, sector));
-        map.put("Iphone 12", new Product(null, "Iphone 12", 1300, 2800, null,null, sector));
         map.put("Iphone 14", new Product(null, "Iphone 14", 1600, 3200, null,null, sector));
         map.put("galaxy s22", new Product(null, "galaxy s22", 1100, 2200, null,null, sector));
         map.put("galaxy g7", new Product(null, "galaxy g7", 600, 900, null, new Date( 2010), sector));
@@ -276,30 +287,42 @@ public class Product implements Serializable {
         map.put("i9 10100H", new Product(null, "i9 10100H", 1300, 2500, null,null, sector));
         map.put("i5 10400h", new Product(null, "i5 10400h", 700, 1400, null,null, sector));
         map.put("Ryzen 3 2200G", new Product(null, "Ryzen 3 2200G", 80, 200, null,null, sector));
-        map.put(" Ryzen 3 3400G", new Product(null, " Ryzen 3 3400G", 150, 300, null,null, sector));
+        map.put("Ryzen 3 3400G", new Product(null, " Ryzen 3 3400G", 150, 300, null,null, sector));
         map.put("Ryzen 5 3600", new Product(null, "Ryzen 5 3600", 250, 500, null,null, sector));
         map.put("Ryzen 5 3600X", new Product(null, "Ryzen 5 3600X", 300, 600, null,null, sector));
-        
+        map.put("Ryzen 5 5600", new Product(null, "Ryzen 5 5600", 400, 650, null,null, sector));
+        map.put("Ryzen 7 3600X", new Product(null, "Ryzen 7 3600X", 1000, 1200, null,null, sector));
+        map.put("RTX 4090 TI", new Product(null, "RTX 4090 TI", 3000, 4500, null,null, sector));
+        map.put("RX 6900 XTX", new Product(null, "RX 6900 XTX", 2000, 3200, null,null, sector));
+        map.put("RX 7600 XT", new Product(null, "RX 7600 XT", 2500, 3800, null,null, sector));
+        map.put("Xiamoi 12", new Product(null, "Xiamoi 12", 800, 1500, null,null, sector));
+        map.put("Xiamoi 14", new Product(null, "Xiamoi 14", 1000, 1800, null,null, sector));
+        map.put("refrigerator", new Product(null, "refrigerator", 4000, 5000, null,null, sector));
+        map.put("RTX 2070 TI", new Product(null, "RTX 2070 TI", 2000, 2300, null,null, sector));
+
         Product product = new Product();
         String aux = generatedString();
         Product productAux = map.get(aux);
 
-        if(productAux == null && productAux == null){
-            Product productTrash =  productAux; 
-            
-        } else {
-            product =  productAux; 
-        }
+        product =  productAux; 
         product.setDateEntry(generateDate());
-        product.setDateExit(generateDate());
+        Date dateExit;
+        do {
+            dateExit = generateDate();
+        } while (dateExit.before(product.getDateEntry()));
+    
+        product.setDateExit(dateExit);
         product.setSector(sector.mapSector(product.getName()));
         return product;
     }
 
     public List<Product>  popularDataBase(int quantity){
         List<Product> products = new LinkedList<>();
-        for(int i = 0; i<quantity; i++){
-            products.add(mappingObject());
+        for (int i = 0; i < quantity; i++) {
+            Product product = mappingObject();
+            if (product != null) {
+                products.add(product);
+            }
         }
 
         Iterator<Product> iterator = products.iterator();

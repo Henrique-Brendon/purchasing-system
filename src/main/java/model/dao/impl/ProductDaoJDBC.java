@@ -61,6 +61,45 @@ public class ProductDaoJDBC implements ProductDao{
         }
     }
 
+    public void insertList(List<Product> product) {
+        PreparedStatement st = null;
+        try{
+            for (Product produto : product) {
+                produto.getSector().mapSectorId(produto.getSector());
+                st = connection.prepareStatement(
+                    "INSERT INTO product " 
+                    +"(productName, cost, price, dateEntry, dateExit, sectorId) " 
+                    +"VALUES " 
+                    + "(?, ?, ?, ?, ?, ?)", 
+                    Statement.RETURN_GENERATED_KEYS);
+                st.setString(1, produto.getName());
+                st.setDouble(2, produto.getCost());
+                st.setDouble(3, produto.getPrice());
+                st.setDate(4, new java.sql.Date(produto.getDateEntry().getTime()));
+                st.setDate(5, new java.sql.Date(produto.getDateExit().getTime()));
+                st.setInt(6, produto.getSector().getSectorId());
+                int linhasAfetadas = st.executeUpdate();
+    
+                if (linhasAfetadas > 0) {
+                    System.out.println("Pronto!");
+                    ResultSet rs = st.getGeneratedKeys();
+                    if (rs.next()) {
+                        int id = rs.getInt(1);
+                        produto.setId(id);
+                    }
+                    Db.closeResult(rs);
+                } else {
+                    throw new DbException("Erro inesperado! Nenhuma linha afetada!");
+                }
+            }
+
+        }catch(SQLException e){
+            throw new DbException(e.getMessage());
+        }finally{
+            Db.closeStatement(st);
+        }
+    }
+
     @Override
     public void update(Product product) {
         // TODO Auto-generated method stub
