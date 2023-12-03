@@ -9,6 +9,7 @@ public class Sector implements Serializable{
     private  static final long serialVersionUID = 1l;
 
     private String sectors;
+    private int sectorId;
     
     public Sector(){}
 
@@ -24,9 +25,18 @@ public class Sector implements Serializable{
         this.sectors = sectors;
     }
 
+    public int getSectorId() {
+        return sectorId;
+    }
+
+    public void setSectorId(int sectorId) {
+        this.sectorId = sectorId;
+    }
+    
+
     @Override
     public String toString() {
-        return "{Sector} " + sectors;
+        return "(" + sectors + ") sectorId = " + getSectorId();
     }
 
     public Sector mapSector(String aux){
@@ -97,10 +107,19 @@ public class Sector implements Serializable{
         if(map.get(aux) != null){
             sec = map.get(aux);
         }
+        mapSectorId(sec);
         return sec;
     }
 
-
+    public void mapSectorId(Sector sector) {
+        if ("Hardware".equals(sector.getSectors())) {
+            sector.setSectorId(1);
+        } else if ("peripherals".equals(sector.getSectors())) {
+            sector.setSectorId(2);
+        } else if ("Electronics".equals(sector.getSectors())) {
+            sector.setSectorId(3);
+        }
+    }
     
     
 }

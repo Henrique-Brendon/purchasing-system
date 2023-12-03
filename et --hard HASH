@@ -1,0 +1,47 @@
+[33mcommit 4da2c53e149f1f9a3f6ea29d6120a6dd5ed262ed[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: henrique brendon <henriquebrendonti26@gmail.com>
+Date:   Sat Dec 2 02:14:21 2023 -0300
+
+    ProductDao and sectorDao completed
+
+[33mcommit deeff9d98ee07a78a8aa2bd81ccc351fc29765da[m
+Author: henrique brendon <henriquebrendonti26@gmail.com>
+Date:   Sat Dec 2 02:05:54 2023 -0300
+
+    completed connection methods
+
+[33mcommit f6d12aaba681b27f93a920f925d39ff021675426[m
+Author: henrique brendon <henriquebrendonti26@gmail.com>
+Date:   Fri Dec 1 23:10:44 2023 -0300
+
+    methods to populate the completed database
+
+[33mcommit d7fcd4a2d135d9d36d064525ef4d9352b88d5b10[m
+Author: henrique brendon <henriquebrendonti26@gmail.com>
+Date:   Thu Nov 30 23:58:13 2023 -0300
+
+    entities product and setor created
+
+[33mcommit 155d066d7d5cca5234358092e3275954182913e7[m
+Author: henrique brendon <henriquebrendonti26@gmail.com>
+Date:   Thu Nov 30 23:29:45 2023 -0300
+
+    Creating project and git repository
+
+[33mcommit 4243ac3e050067e5c88d7550ca4c45f34b6c1074[m
+Author: Henrique Brendon <122949248+Henrique-Brendon@users.noreply.github.com>
+Date:   Thu Nov 30 21:26:01 2023 -0300
+
+    img-diagram
+
+[33mcommit a345af06bf8b9a5ee43d1d16bcb1b5ee47324ea1[m
+Author: Henrique Brendon <122949248+Henrique-Brendon@users.noreply.github.com>
+Date:   Thu Nov 30 21:21:53 2023 -0300
+
+    Project diagram
+
+[33mcommit 3b20f326561d007250fcd9a37f5321049c2f9065[m
+Author: Henrique Brendon <122949248+Henrique-Brendon@users.noreply.github.com>
+Date:   Thu Nov 30 21:21:03 2023 -0300
+
+    Initial commit

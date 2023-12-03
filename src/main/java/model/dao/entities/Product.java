@@ -105,7 +105,7 @@ public class Product implements Serializable {
     public String toString() {
         return "{Product} =  #" + id + ", name " + name + ", cost " + cost + "$ \n"
                 + " price=" + price + "$ , dateEntry("
-                + formatDate(getDateEntry()) + ") , dateExit(" + formatDate(getDateExit()) + "), sector=" + sector;
+                + formatDate(getDateEntry()) + ") , dateExit(" + formatDate(getDateExit()) + "), sector" + sector;
     }
 
     @Override
@@ -286,6 +286,7 @@ public class Product implements Serializable {
 
         if(productAux == null && productAux == null){
             Product productTrash =  productAux; 
+            
         } else {
             product =  productAux; 
         }
@@ -295,7 +296,7 @@ public class Product implements Serializable {
         return product;
     }
 
-    public List<Product> popularDataBase(int quantity){
+    public List<Product>  popularDataBase(int quantity){
         List<Product> products = new LinkedList<>();
         for(int i = 0; i<quantity; i++){
             products.add(mappingObject());
