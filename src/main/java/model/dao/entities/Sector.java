@@ -132,5 +132,18 @@ public class Sector implements Serializable{
             sector.setSectorId(4);
         }
     }
+
+    
+    public void mapSectorString(Integer number) {
+        if(number == 1){
+            setSectors("Hardware");
+        }else if(number == 2){
+            setSectors("peripherals");
+        }else if(number == 3){
+            setSectors("Electronics");
+        }else {
+            setSectors("Object not map");
+        }
+    }
  
 }

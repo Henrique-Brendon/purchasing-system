@@ -87,8 +87,7 @@ public class SectorDaoJDBC implements SectorDao{
 
     @Override
     public List<Sector> finAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'finAll'");
+        throw new UnsupportedOperationException("Unimplemented method 'findById'");
     }
-    
 }
+    
