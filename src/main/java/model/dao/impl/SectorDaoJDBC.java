@@ -2,9 +2,13 @@ package model.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import DB.Db;
 import DB.DbException;
@@ -75,19 +79,76 @@ public class SectorDaoJDBC implements SectorDao{
 
     @Override
     public void deleteById(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
+        PreparedStatement st = null;
+        try{
+            st = connection.prepareStatement("DELETE FROM sector WHERE SectorId = ?");
+            st.setInt(1, id);
+
+            int rows = st.executeUpdate();
+
+            if(rows == 0){
+                throw new DbException("no lines affected");
+            }
+        }catch(SQLException e){
+            throw new DbException(e.getMessage());
+        }finally{
+            Db.closeStatement(st);
+        }
+    }
+    @Override
+    public Sector findById(Integer id) {///
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            st = connection.prepareStatement(
+                "SELECT sector.* "
+                +"FROM sector "
+                +"WHERE sector.SectorId = ?");            
+            st.setInt(1, id);
+            rs  = st.executeQuery();
+            if (rs.next()) {
+                Sector sector = new Sector();
+                sector.setSectorId(rs.getInt("SectorId"));
+                sector.mapSectorString(rs.getInt("SectorId"));
+               return sector;
+            } else {
+                throw new DbException("Error!");
+            }
+
+        }catch(SQLException e){
+            throw new DbException(e.getMessage());
+        }
+        finally{
+            Db.closeStatement(st);
+            Db.closeResult(rs);
+        }
     }
 
     @Override
-    public Sector findById(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
-    }
-
-    @Override
-    public List<Sector> finAll() {
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    public List<Sector> findAll() {
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            st = connection.prepareStatement(
+                "SELECT * FROM Sector ORDER By SectorId");
+            rs = st.executeQuery();
+    
+            List<Sector> list = new LinkedList<>();
+            Map<Integer, Sector> map = new HashMap<>();
+            while (rs.next()) {
+                Sector sec = new Sector();
+                sec.setSectorId(rs.getInt("SectorId"));
+                sec.setSectors(rs.getString("SectorName"));
+                sec.mapSectorString(rs.getInt("SectorId"));
+                list.add(sec);
+            }
+            return list;
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        } finally {
+            Db.closeStatement(st);
+            Db.closeResult(rs);
+        }
     }
 }
     

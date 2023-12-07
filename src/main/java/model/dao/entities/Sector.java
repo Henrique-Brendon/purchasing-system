@@ -12,10 +12,17 @@ public class Sector implements Serializable{
     private String sectors;
     private int sectorId;
     
-    public Sector(){}
+    public Sector(){
+
+    }
 
     public Sector(String element){
         sectors =  element; 
+    }
+
+    public Sector(String element, int sectorId){
+        sectors =  element; 
+        this.sectorId = sectorId;
     }
 
     public String getSectors() {

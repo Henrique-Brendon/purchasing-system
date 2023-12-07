@@ -9,5 +9,5 @@ public interface SectorDao {
     void update(Sector product);
     void deleteById(Integer id);
     Sector findById(Integer id);
-    List<Sector> finAll();
+    List<Sector> findAll();
 }
