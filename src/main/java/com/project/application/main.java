@@ -1,9 +1,7 @@
 package com.project.application;
-
-import java.sql.Date;
-
+import DB.Db;
 import Util.cep.CepInfo;
-import model.dao.entities.Client;
+import model.dao.impl.CepInfoDaoJDBC;
 
 
 
@@ -18,9 +16,8 @@ public class main {
         
         System.out.println(p);
         */
-        Date dateOfBirth = Date.valueOf("1999-01-01");
-        Client p = new Client("Henrique", dateOfBirth, "henrique@gmail.com", "1234", new CepInfo().cepObject("08240530"));
-        System.out.println(p);
+        CepInfoDaoJDBC cep = new CepInfoDaoJDBC(Db.getConnection());
+        cep.insert(CepInfo.cepObject("08240530"));
         
         }
 
