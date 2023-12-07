@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
 
-abstract class Person implements Serializable{
+class Person implements Serializable{
     private String name;
     private Date birthDate;
     private String email;
@@ -64,7 +64,7 @@ abstract class Person implements Serializable{
 
     @Override
     public String toString() {
-        return "Nome: " + name + ", birthDate " + Product.formatDate(birthDate) + ": ("+ calculateAge(getBirthDate())+") years, email " + email;
+        return "Name: " + name + ", birthDate " + Product.formatDate(birthDate) + ": ("+ calculateAge(getBirthDate())+") years, email " + email;
     }
 
     
