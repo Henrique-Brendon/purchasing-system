@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class Person implements Serializable{
+abstract class Person implements Serializable{
     private String name;
     private Date birthDate;
     private String email;

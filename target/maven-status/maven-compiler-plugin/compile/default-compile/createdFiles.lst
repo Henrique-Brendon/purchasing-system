@@ -1,1 +1,10 @@
-com\project\App.class
+model\dao\entities\Product.class
+model\dao\impl\SectorDaoJDBC.class
+model\dao\SectorDao.class
+DB\DbException.class
+model\dao\entities\Sector.class
+com\project\application\main.class
+model\dao\impl\ProductDaoJDBC.class
+DB\Db.class
+model\dao\ProductDao.class
+model\dao\entities\Person.class
