@@ -93,7 +93,7 @@ public class Product implements Serializable {
         this.sector = sector;
     }
 
-    private String formatDate(Date date) {
+    public static String formatDate(Date date) {
         if(date != null){
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             return sdf.format(date);
