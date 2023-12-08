@@ -16,9 +16,16 @@ public class Client extends Person{
 
     }
 
-    public Client(String name, Date birthDate, String email, String password, CepInfo cepInfo) {
+    public void setCepInfo(CepInfo cepInfo){
+        this.cepInfo = cepInfo;
+    }
+    
+    public CepInfo getCepInfo(){
+        return cepInfo;
+    }
+
+    public Client(String name, Date birthDate, String email, String password) {
         super(name, birthDate, email, password);
-        this.cepInfo =  cepInfo;
     }
 
 

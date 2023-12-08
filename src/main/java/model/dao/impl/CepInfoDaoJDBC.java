@@ -38,7 +38,7 @@ public class CepInfoDaoJDBC implements CepInfoDao {
     
             if (rowsAffected > 0 && rs.next()) {
                 int id = rs.getInt(1);
-                System.out.println("ID gerado: " + id);
+                System.out.println("cep id: " + id);
             } else {
                 throw new CepExcetion("Unexpected error! No rows affected or no generated keys!");
             }
