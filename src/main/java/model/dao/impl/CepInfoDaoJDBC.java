@@ -49,7 +49,6 @@ public class CepInfoDaoJDBC implements CepInfoDao {
             Db.closeStatement(st);
             Db.closeResult(rs);
         }
-    
         return rs;
     }
     

@@ -117,6 +117,26 @@ public class CepInfo implements Serializable{
             return null;
         }
     }
+    public CepInfo cepObjectNoStatic(String json){
+        String aux = consultCep(json);
+
+        try{
+            final JSONObject jsonObject = new JSONObject(aux);
+
+            String cep = jsonObject.getString("cep");
+            String street = jsonObject.getString("logradouro");
+            String neighborhood = jsonObject.getString("bairro");
+            String state = jsonObject.getString("uf");
+            String city = jsonObject.getString("localidade");
+
+            CepInfo cepInfo= new CepInfo(cep, street, neighborhood, state, city);
+            CepInfo cepAux =  parametrizarObjeto(cepInfo);
+            return cepAux;
+        }catch(Exception e){
+            e.getStackTrace();
+            return null;
+        }
+    }
 
     private static CepInfo parametrizarObjeto(CepInfo cep){
         localeCep.setCep(cep.cep);

@@ -5,7 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import DB.Db;
 import DB.DbException;
@@ -25,7 +28,6 @@ public class ClientDaoJDBC implements ClientDao{
     public void insert(Client client) {
         PreparedStatement st = null;
         try{
-            
             CepInfoDaoJDBC cep = new CepInfoDaoJDBC(Db.getConnection());
             cep.insert(CepInfo.cepObject(client.getCepInfo().getCep()));
             st = connection.prepareStatement(
@@ -52,8 +54,6 @@ public class ClientDaoJDBC implements ClientDao{
         }finally{
             Db.closeStatement(st);
         }
-        
-
     }
 
     @Override
@@ -76,8 +76,36 @@ public class ClientDaoJDBC implements ClientDao{
 
     @Override
     public List<Client> findAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try{
+            st = connection.prepareStatement(
+                "SELECT clientJ.ClientId, clientJ.ClientName, clientJ.BirthDate, "
+                +"clientJ.Email, clientJ.ClientPassword, cepLocale.cep, "
+                +"cepLocale.street, cepLocale.neighborhood, cepLocale.City, "
+                +"cepLocale.State FROM clientJ "
+                +"JOIN cepLocale ON clientJ.cepId = cepLocale.cepId ");
+            rs = st.executeQuery();
+    
+            List<Client> list = new LinkedList<>();
+            Map<Integer, CepInfo> map = new HashMap<>();
+            while (rs.next()) {
+                CepInfo obj = map.get(rs.getInt("ClientId"));
+                if (obj == null) {
+                    obj = startCep(rs);
+                    map.put(rs.getInt("ClientId"), obj);
+                }
+                Client client = new Client(rs.getString("ClientName"), rs.getDate("BirthDate"),
+                rs.getString("Email"), rs.getString("ClientPassword"), CepInfo.cepObject(obj.getCep()));
+                list.add(client);
+            }
+            return list;
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        } finally {
+            Db.closeStatement(st);
+            Db.closeResult(rs);
+        }
     }
 
     @Override
@@ -86,8 +114,26 @@ public class ClientDaoJDBC implements ClientDao{
         throw new UnsupportedOperationException("Unimplemented method 'getSize'");
     }
 
-    private Client iniciarClient(PreparedStatement ps){
-        return null;
+
+
+    public Client startClient(ResultSet rs) throws SQLException{
+        Client obj = new Client();
+        obj.setId(rs.getInt("ClientId"));
+        obj.setName(rs.getString("ClientName"));
+        obj.setBirthDate(rs.getDate("BirthDate"));
+        obj.setEmail(rs.getString("Email"));
+        obj.setPassword(rs.getString("ClientPassword"));
+        return obj;
+    }
+    
+    public CepInfo startCep(ResultSet rs)throws SQLException{
+        CepInfo cep = new CepInfo();
+        cep.setCep(rs.getString("cep"));
+        cep.setStreet(rs.getString("street"));
+        cep.setNeighborhood(rs.getString("neighborhood"));
+        cep.setCity(rs.getString("City"));
+        cep.setState(rs.getString("State"));
+        return cep;
     }
     
 }

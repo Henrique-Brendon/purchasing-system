@@ -1,10 +1,11 @@
 package com.project.application;
+
+
 import java.sql.Date;
 
 import DB.Db;
 import Util.cep.CepInfo;
 import model.dao.entities.Client;
-import model.dao.impl.CepInfoDaoJDBC;
 import model.dao.impl.ClientDaoJDBC;
 
 
@@ -15,16 +16,17 @@ import model.dao.impl.ClientDaoJDBC;
 
 public class main {
     public static void main(String[] args) {
-        /* 
         
-        
-        System.out.println(p);
-        */
-        Date dateOfBirth = Date.valueOf("1949-01-01");
+        /*Criar um teste para implementar no findAll */
+
         ClientDaoJDBC client = new ClientDaoJDBC(Db.getConnection());
-        Client cliente = new Client("Brendon", dateOfBirth, "Brendon@gmail", "123");
-        cliente.setCepInfo(CepInfo.cepObject("08240530"));
+
+        
+        Date dateOfBirth = Date.valueOf("1989-01-01");
+        Client cliente = new Client("Vanderlei", dateOfBirth, "Vanderleiy@gmail", "123");
+        cliente.setCepInfo(CepInfo.cepObject("85604-466")); 
         client.insert(cliente);
+        System.out.println(client.findAll());
         
         }
 
