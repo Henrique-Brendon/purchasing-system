@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 public class CepInfo implements Serializable{
 
+    private int cepId;
     private String cep;
     private String street;
     private String neighborhood;
@@ -31,6 +32,14 @@ public class CepInfo implements Serializable{
         this.state = state;
     }
 
+    public int getCepId() {
+        return cepId;
+    }
+    
+    public void setCepId(int id) {
+        this.cepId = id;
+    }
+    //
     public String getCep() {
         return cep;
     }
@@ -149,7 +158,8 @@ public class CepInfo implements Serializable{
 
     @Override
     public String toString() {
-        return "CEP: " + cep + "\n" +
+        return  "Id: " + cepId + "\n" +
+                "CEP: " + cep + "\n" +
                 "Street: " + street + "\n" +
                 "Neighborhood: " + neighborhood + "\n" +
                 "City: " + city + "\n" +

@@ -1,24 +1,15 @@
 package com.project.application;
 
-
-import java.sql.Date;
-
 import DB.Db;
-import Util.cep.CepInfo;
-import model.dao.entities.Client;
-import model.dao.impl.ClientDaoJDBC;
-
-
-
-
-
-
+import model.dao.impl.CepInfoDaoJDBC;
 
 public class main {
     public static void main(String[] args) {
-        
-        /*Criar um teste para implementar no findAll */
 
+        CepInfoDaoJDBC cep = new CepInfoDaoJDBC(Db.getConnection());
+        System.out.println(cep.findAll());
+        
+        /* 
         ClientDaoJDBC client = new ClientDaoJDBC(Db.getConnection());
 
         
@@ -27,6 +18,7 @@ public class main {
         cliente.setCepInfo(CepInfo.cepObject("85604-466")); 
         client.insert(cliente);
         System.out.println(client.findAll());
+        */
         
         }
 

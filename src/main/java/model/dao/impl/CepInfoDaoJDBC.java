@@ -5,8 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import DB.Db;
+import DB.DbException;
 import Util.cep.CepExcetion;
 import Util.cep.CepInfo;
 import model.dao.CepInfoDao;
@@ -50,6 +53,41 @@ public class CepInfoDaoJDBC implements CepInfoDao {
             Db.closeResult(rs);
         }
         return rs;
+    }
+
+    @Override
+    public List<CepInfo> findAll() {
+        PreparedStatement st = null;
+        ResultSet rs =  null;
+        try {
+            st =  connection.prepareStatement(
+                "SELECT * FROM cepLocale");
+            rs = st.executeQuery();
+
+            List<CepInfo> list = new ArrayList<>();
+            while(rs.next()){
+                CepInfo info = startCep(rs);
+                list.add(info);
+
+            }
+            return list;
+        }catch(SQLException e){
+            throw new DbException(e.getMessage());
+        }finally {
+            Db.closeStatement(st);
+            Db.closeResult(rs);
+        }
+    }
+
+    public CepInfo startCep(ResultSet rs)throws SQLException{
+        CepInfo cep = new CepInfo();
+        cep.setCepId(rs.getInt("cepId"));
+        cep.setCep(rs.getString("cep"));
+        cep.setStreet(rs.getString("street"));
+        cep.setNeighborhood(rs.getString("neighborhood"));
+        cep.setCity(rs.getString("City"));
+        cep.setState(rs.getString("State"));
+        return cep;
     }
     
 
