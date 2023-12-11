@@ -1,29 +1,36 @@
 package com.project.application;
 
+
+import java.sql.Date;
+
 import DB.Db;
+import Util.cep.CepInfo;
+import model.dao.entities.Client;
+import model.dao.entities.Product;
 import model.dao.impl.CepInfoDaoJDBC;
+import model.dao.impl.ClientDaoJDBC;
+import model.dao.impl.ProductDaoJDBC;
 
 public class main {
     public static void main(String[] args) {
-
         CepInfoDaoJDBC cep = new CepInfoDaoJDBC(Db.getConnection());
-        System.out.println(cep.findAll());
-        
-        /* 
         ClientDaoJDBC client = new ClientDaoJDBC(Db.getConnection());
 
+        ProductDaoJDBC product = new ProductDaoJDBC(Db.getConnection());
+
+
+        Product product2 =  product.findById(1);
+        product2.setName("Rx");
+        product.update(product2);
         
-        Date dateOfBirth = Date.valueOf("1989-01-01");
-        Client cliente = new Client("Vanderlei", dateOfBirth, "Vanderleiy@gmail", "123");
-        cliente.setCepInfo(CepInfo.cepObject("85604-466")); 
-        client.insert(cliente);
-        System.out.println(client.findAll());
-        */
-        
+        Client c1 = client.findById(2);
+        c1.setName("Anna");
+        client.update(c1);
+
+        System.out.println(c1); 
         }
-
-
-}
+        
+    }
           
 
 

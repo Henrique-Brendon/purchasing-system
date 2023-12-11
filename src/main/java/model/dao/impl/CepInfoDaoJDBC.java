@@ -13,6 +13,7 @@ import DB.DbException;
 import Util.cep.CepExcetion;
 import Util.cep.CepInfo;
 import model.dao.CepInfoDao;
+import model.dao.entities.Client;
 
 public class CepInfoDaoJDBC implements CepInfoDao {
         private Connection connection;
@@ -79,6 +80,28 @@ public class CepInfoDaoJDBC implements CepInfoDao {
         }
     }
 
+    @Override
+    public CepInfo findById(Integer id) {
+            ResultSet rs = null;
+            PreparedStatement st = null;
+        try{    
+            st = connection.prepareStatement(
+                "SELECT * FROM cepLocale WHERE cepId = ?");
+                st.setInt(1, id);
+            rs = st.executeQuery();
+            if(rs.next()) {
+                CepInfo cep = startCep(rs);
+                return cep;
+            }
+            return null;
+        } catch(SQLException e){
+            throw new DbException(e.getMessage());
+        }finally{
+            Db.closeResult(rs);
+            Db.closeStatement(st);
+        }
+    }  
+
     public CepInfo startCep(ResultSet rs)throws SQLException{
         CepInfo cep = new CepInfo();
         cep.setCepId(rs.getInt("cepId"));
@@ -89,7 +112,5 @@ public class CepInfoDaoJDBC implements CepInfoDao {
         cep.setState(rs.getString("State"));
         return cep;
     }
-    
 
-    
 }

@@ -13,12 +13,22 @@ public class Client extends Person{
     /**
      * 
      */
-    public Client(){
 
+    public Client(){
+    }
+
+    public Client(CepInfo cepInfo){
+        this.cepInfo = cepInfo;
     }
 
     public Client(String name, Date birthDate, String email, String password) {
         super(name, birthDate, email, password);
+    }
+
+    public Client(int id, String name, Date birthDate, String email, String password, CepInfo cepInfo) {
+        super(name, birthDate, email, password);
+        this.cepInfo = cepInfo;
+        this.id = id;
     }
 
     public Client(String name, Date birthDate, String email, String password, CepInfo cepInfo) {

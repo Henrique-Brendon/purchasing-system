@@ -8,4 +8,5 @@ import Util.cep.CepInfo;
 public interface CepInfoDao {
     ResultSet insert(CepInfo cepInfo);
     List<CepInfo> findAll();
+    CepInfo findById(Integer id);
 }

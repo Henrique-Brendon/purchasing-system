@@ -24,7 +24,7 @@ public class CepInfo implements Serializable{
 
     }
     
-    private CepInfo(String cep, String street, String neighborhood, String city, String state){
+    public CepInfo(String cep, String street, String neighborhood, String city, String state){
         this.cep = cep;
         this.street = street;
         this.neighborhood = neighborhood;

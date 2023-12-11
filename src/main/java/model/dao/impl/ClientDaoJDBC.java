@@ -58,20 +58,77 @@ public class ClientDaoJDBC implements ClientDao{
 
     @Override
     public void update(Client client) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        PreparedStatement st = null;
+        try {
+            st = connection.prepareStatement(
+                "UPDATE clientJ "
+                + "SET clientName = ?, birthDate = ?, email = ?, clientPassword = ?, cepId = ? "
+                + "WHERE clientId = ?");
+            st.setString(1, client.getName());
+            st.setDate(2, new java.sql.Date(client.getBirthDate().getTime()));
+            st.setString(3, client.getEmail());
+            st.setString(4, client.getPassword());
+            CepInfo cep;
+            st.setInt(6, client.getId());
+            cep = new CepInfoDaoJDBC(connection).findById(client.getId());
+            st.setInt(5, cep.getCepId());
+            int rows = st.executeUpdate();
+            if (rows == 0) {
+                throw new DbException("Error, no lines affected");
+            }
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        } finally {
+            Db.closeStatement(st);
+            Db.closeConnection();
+        }
     }
-
+    
     @Override
     public void deleteById(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
+        PreparedStatement st = null;
+        try{
+            st = connection.prepareStatement("DELETE FROM clientj WHERE ClientId = ?");
+            st.setInt(1, id);
+
+            int rows = st.executeUpdate();
+
+            if(rows == 0){
+                throw new DbException("no lines affected");
+            }
+        }catch(SQLException e){
+            throw new DbException(e.getMessage());
+        }finally{
+            Db.closeStatement(st);
+        }
     }
 
     @Override
     public Client findById(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            st = connection.prepareStatement(
+                "SELECT clientJ.*, cepLocale.* "
+                +"FROM clientJ "
+                +"INNER JOIN cepLocale ON clientJ.cepId = cepLocale.cepId "
+                +"WHERE clientJ.ClientId = ?");            
+            st.setInt(1, id);
+            rs  = st.executeQuery();
+            if(rs.next()) {
+                CepInfo obj = startCep(rs);
+                Client client = new Client(rs.getInt("ClientId"), rs.getString("ClientName"), rs.getDate("BirthDate"),
+                rs.getString("Email"), rs.getString("ClientPassword"), CepInfo.cepObject(obj.getCep()));
+                return client;
+            }
+            return null;
+        }catch(SQLException e){
+            throw new DbException(e.getMessage());
+        }
+        finally{
+            Db.closeStatement(st);
+            Db.closeResult(rs);
+        }
     }
 
     @Override
@@ -110,11 +167,27 @@ public class ClientDaoJDBC implements ClientDao{
 
     @Override
     public int getSize() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getSize'");
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            st = connection.prepareStatement(
+                "SELECT COUNT(*) AS getClientj "
+                +"FROM clientj");            
+            rs  = st.executeQuery();
+            if(rs.next()){
+                Integer a = rs.getInt("getClientj");
+                return a;
+            } else {
+                throw new DbException("Error getting table total");
+            }
+        }catch(SQLException e){
+            throw new DbException(e.getMessage());
+        }
+        finally{
+            Db.closeStatement(st);
+            Db.closeResult(rs);
+        }
     }
-
-
 
     public Client startClient(ResultSet rs) throws SQLException{
         Client obj = new Client();
