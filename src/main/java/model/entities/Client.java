@@ -1,4 +1,4 @@
-package model.dao.entities;
+package model.entities;
 
 import java.sql.Date;
 
@@ -7,7 +7,6 @@ import Util.cep.CepInfo;
 public class Client extends Person{
     
     private CepInfo cepInfo;
-    private Card card;
     private int id;
 
     /**

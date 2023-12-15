@@ -15,8 +15,8 @@ import DB.Db;
 import DB.DbException;
 
 import model.dao.ProductDao;
-import model.dao.entities.Product;
-import model.dao.entities.Sector;
+import model.entities.Product;
+import model.entities.Sector;
 
 public class ProductDaoJDBC implements ProductDao{
 

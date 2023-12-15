@@ -13,7 +13,8 @@ import java.util.Map;
 import DB.Db;
 import DB.DbException;
 import model.dao.SectorDao;
-import model.dao.entities.Sector;
+import model.entities.Sector;
+
 
 public class SectorDaoJDBC implements SectorDao{
     private Connection connection;

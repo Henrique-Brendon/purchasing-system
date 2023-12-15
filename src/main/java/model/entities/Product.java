@@ -1,4 +1,4 @@
-package model.dao.entities;
+package model.entities;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;

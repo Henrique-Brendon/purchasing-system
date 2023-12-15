@@ -1,10 +1,11 @@
 
 
- package model.dao;
+package model.dao;
 
 import java.util.List;
 
-import model.dao.entities.Client;
+import model.entities.Client;
+
 
 public interface ClientDao {
 

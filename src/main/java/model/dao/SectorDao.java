@@ -2,7 +2,7 @@ package model.dao;
 
 import java.util.List;
 
-import model.dao.entities.Sector;
+import model.entities.Sector;
 
 public interface SectorDao {
     void insert(Sector product);

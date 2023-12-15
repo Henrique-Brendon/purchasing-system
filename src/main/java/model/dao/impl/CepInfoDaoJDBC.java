@@ -13,7 +13,6 @@ import DB.DbException;
 import Util.cep.CepExcetion;
 import Util.cep.CepInfo;
 import model.dao.CepInfoDao;
-import model.dao.entities.Client;
 
 public class CepInfoDaoJDBC implements CepInfoDao {
         private Connection connection;

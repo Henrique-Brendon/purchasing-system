@@ -2,8 +2,7 @@ package model.dao;
 
 import java.util.List;
 
-import model.dao.entities.Product;
-
+import model.entities.Product;
 
 public interface ProductDao {
     void insert(Product product);

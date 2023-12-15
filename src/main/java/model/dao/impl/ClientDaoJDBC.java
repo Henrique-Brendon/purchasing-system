@@ -14,7 +14,8 @@ import DB.Db;
 import DB.DbException;
 import Util.cep.CepInfo;
 import model.dao.ClientDao;
-import model.dao.entities.Client;
+import model.entities.Client;
+
 
 public class ClientDaoJDBC implements ClientDao{
 
